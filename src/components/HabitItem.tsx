@@ -1,4 +1,3 @@
-import React from "react";
 import type { Habit } from "../types";
 
 interface Props {
@@ -14,7 +13,15 @@ const HabitItem = ({ habit, onToggleDay }: Props) => {
       <h3>{habit.name}</h3>
       <div>
         {days.map((day) => (
-          <button key={day} onClick={() => onToggleDay(habit.id, day)}>
+          <button
+            key={day}
+            onClick={() => onToggleDay(habit.id, day)}
+            style={{
+              backgroundColor: habit.completedDays.includes(day)
+                ? "green"
+                : "lightgray",
+            }}
+          >
             {day}
           </button>
         ))}

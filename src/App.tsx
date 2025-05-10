@@ -1,4 +1,3 @@
-import React from "react";
 import { useState } from "react";
 import type { Habit } from "./types";
 import AddHabitForm from "./components/AddHabitForm";
@@ -8,11 +7,27 @@ const App = () => {
   const [habits, setHabits] = useState<Habit[]>([]);
 
   const addHabit = (name: string) => {
-    //todo; function
+    const newHabit: Habit = {
+      id: Date.now(),
+      name,
+      completedDays: [],
+    };
+    setHabits([...habits, newHabit]);
   };
 
   const toggleDay = (habitId: number, day: number) => {
-    //todo: function
+    setHabits(
+      habits.map((habit) => {
+        if (habit.id !== habitId) return habit;
+        const isCompleted = habit.completedDays.includes(day);
+        return {
+          ...habit,
+          completedDays: isCompleted
+            ? habit.completedDays.filter((d) => d !== day)
+            : [...habit.completedDays, day],
+        };
+      })
+    );
   };
 
   return (
