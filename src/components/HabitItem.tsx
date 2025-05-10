@@ -1,7 +1,26 @@
 import React from "react";
+import type { Habit } from "../types";
 
-const HabitItem = () => {
-  return <div></div>;
+interface Props {
+  habit: Habit;
+  onToggleDay: (habitId: number, day: number) => void;
+}
+
+const HabitItem = ({ habit, onToggleDay }: Props) => {
+  const days = Array.from({ length: 7 }, (_, i) => i + 1);
+
+  return (
+    <div>
+      <h3>{habit.name}</h3>
+      <div>
+        {days.map((day) => (
+          <button key={day} onClick={() => onToggleDay(habit.id, day)}>
+            {day}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default HabitItem;

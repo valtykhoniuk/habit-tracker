@@ -19,7 +19,7 @@ const App = () => {
     <>
       <h1>Habit tracker</h1>
       <AddHabitForm onAdd={addHabit} />
-      {/* <HabitList habits={habits} onToggleDay={toggleDay} /> */}
+      <HabitList habits={habits} onToggleDay={toggleDay} />
     </>
   );
 };
