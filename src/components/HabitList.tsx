@@ -8,7 +8,7 @@ interface Props {
 
 const HabitList = ({ habits, onToggleDay }: Props) => {
   return (
-    <div>
+    <div className="habit-list">
       {habits.map((habit) => (
         <HabitItem key={habit.id} habit={habit} onToggleDay={onToggleDay} />
       ))}

@@ -31,11 +31,13 @@ const App = () => {
   };
 
   return (
-    <>
-      <h1>Habit tracker</h1>
-      <AddHabitForm onAdd={addHabit} />
-      <HabitList habits={habits} onToggleDay={toggleDay} />
-    </>
+    <div className="app">
+      <div className="app__card">
+        <h1>Habit tracker</h1>
+        <AddHabitForm onAdd={addHabit} />
+        <HabitList habits={habits} onToggleDay={toggleDay} />
+      </div>
+    </div>
   );
 };
 
