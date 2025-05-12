@@ -8,7 +8,7 @@ interface Props {
 
 const HabitList = ({ habits, onToggleDay }: Props) => {
   return (
-    <div className="habit-list">
+    <div className="habit-list flex flex-col gap-4 max-h-[60vh] overflow-y-auto pr-2">
       {habits.map((habit) => (
         <HabitItem key={habit.id} habit={habit} onToggleDay={onToggleDay} />
       ))}

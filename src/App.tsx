@@ -31,9 +31,11 @@ const App = () => {
   };
 
   return (
-    <div className="app">
-      <div className="app__card">
-        <h1>Habit tracker</h1>
+    <div className="app flex items-center justify-center h-screen">
+      <div className="app__card absolute z-20 flex flex-col gap-4 p-20 rounded-2xl bg-white/15 backdrop-blur shadow-md w-full max-w-2xl">
+        <h1 className="text-3xl font-bold text-white text-center mb-4">
+          Habit Tracker
+        </h1>
         <AddHabitForm onAdd={addHabit} />
         <HabitList habits={habits} onToggleDay={toggleDay} />
       </div>
